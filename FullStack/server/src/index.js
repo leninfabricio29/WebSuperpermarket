@@ -7,11 +7,14 @@ require('./db/main')
 
 
 //Asignacion de puertos
+app.use(cors())
+
 app.set('Port',4000)
 app.use(morgan('dev'))
 app.use(bodyparser.urlencoded({extended:true}))
+app.use(express.urlencoded({extended:true}))
+app.use(express.json())
 app.unsubscribe(bodyparser.json())
-app.use(cors())
 
 
 //Peticiones

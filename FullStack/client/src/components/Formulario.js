@@ -11,14 +11,14 @@ export default function Formulario() {
 
     const registrar = async (e) => {
         e.preventDefault()
-        const NuevoProducto = { nombre, categoria, precio, cantidad }
+        const NuevoProducto = {nombre,categoria,precio,cantidad}
         const respuesta = await Axios.post('http://localhost:4000/api', NuevoProducto)
         const mensaje = respuesta.data.mensaje
         Swal.fire({
             icon: 'success',
             title: mensaje,
-            showConfirmButton: false,
-            timer: 150
+            showConfirmButton: true,
+            timer: 2500
         })
     }
 
@@ -27,7 +27,7 @@ export default function Formulario() {
             <div>
                 <h5>Registro de productos</h5>
             </div>
-            <form onSubmit={registrar}>
+            <form onSubmit={registrar} >
                 <div className="form-group ">
                     <input type="text" className="form-control" required placeholder="Ingrese el nombre" onChange=
                         {e => setNombre(e.target.value)}/>
